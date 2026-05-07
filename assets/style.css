@@ -147,6 +147,13 @@ input {
   gap: 14px;
 }
 
+.quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .user-box {
   min-width: 260px;
   padding: 0;
@@ -664,6 +671,14 @@ input {
     justify-content: space-between;
   }
 
+  .fighter-presenter {
+    min-height: 220px;
+  }
+
+  .fighter-presenter img {
+    max-height: 170px;
+  }
+
   .user-box {
     text-align: left;
   }
@@ -681,6 +696,63 @@ input {
 @media (max-width: 520px) {
   .battle-screen {
     padding: 16px;
+  }
+
+  .modal {
+    align-items: start;
+    padding: 8px;
+  }
+
+  .info-modal {
+    width: 100%;
+    max-height: calc(100dvh - 16px);
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .modal-head {
+    position: sticky;
+    top: -12px;
+    z-index: 2;
+    margin: -12px -12px 12px;
+    padding: 12px;
+    background: rgba(17, 22, 29, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .presentation-layout {
+    gap: 10px;
+  }
+
+  .fighter-presenter {
+    min-height: 160px;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .fighter-presenter img {
+    width: min(100%, 132px);
+    max-height: 112px;
+  }
+
+  .component-stack {
+    gap: 8px;
+  }
+
+  .component-card {
+    flex-basis: 118px;
+    min-height: 82px;
+    padding: 10px;
+  }
+
+  .component-photo {
+    min-height: 38px;
+  }
+
+  .battle-explanation {
+    margin-top: 12px;
+    line-height: 1.45;
   }
 
   .arena {
@@ -755,6 +827,22 @@ input {
   color: #ffe08a;
 }
 
+.info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #7dd3fc;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.5);
+}
+
+.info-btn:hover {
+  color: #bae6fd;
+}
+
 .rewards-box {
   min-height: 34px;
   padding: 8px 13px;
@@ -765,6 +853,17 @@ input {
     0 0 12px rgba(255, 204, 77, 0.38),
     inset 0 0 12px rgba(255, 204, 77, 0.1);
   animation: rewardGlow 1.8s ease-in-out infinite;
+}
+
+.info-box {
+  min-height: 34px;
+  padding: 8px 13px;
+  border-radius: 14px;
+  border: 1px solid #38bdf8;
+  background: rgba(56, 189, 248, 0.07);
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.28),
+    inset 0 0 12px rgba(56, 189, 248, 0.08);
 }
 
 @keyframes rewardGlow {
@@ -861,7 +960,7 @@ input {
   z-index: 50;
   display: grid;
   place-items: center;
-  padding: 20px;
+  padding: clamp(10px, 3vw, 20px);
 }
 
 .modal-backdrop {
@@ -882,6 +981,22 @@ input {
   padding: 18px;
 }
 
+.info-modal {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, calc(100vw - 20px));
+  max-height: calc(100dvh - 20px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: clamp(12px, 2vw, 20px);
+  background:
+    linear-gradient(90deg, rgba(239, 68, 68, 0.12), transparent 34%, rgba(34, 197, 94, 0.12)),
+    #11161d;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.52);
+  padding: clamp(12px, 2vw, 18px);
+}
+
 .modal-head {
   display: flex;
   align-items: center;
@@ -900,6 +1015,150 @@ input {
   color: white;
   font-size: 22px;
   cursor: pointer;
+}
+
+.presentation-layout {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(220px, 360px) minmax(150px, 1fr);
+  align-items: center;
+  gap: clamp(10px, 2vw, 18px);
+}
+
+.fighter-presenter {
+  min-height: clamp(230px, 42vh, 430px);
+  margin: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: clamp(12px, 1.8vw, 18px);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.045);
+}
+
+.fighter-presenter img {
+  width: min(100%, clamp(150px, 22vw, 260px));
+  max-height: clamp(165px, 32vh, 320px);
+  object-fit: contain;
+  filter: drop-shadow(0 24px 28px rgba(0,0,0,0.48));
+}
+
+.fighter-presenter figcaption {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 1000;
+}
+
+.fighter-presenter-chad {
+  background:
+    linear-gradient(145deg, rgba(239, 68, 68, 0.18), rgba(255,255,255,0.045)),
+    #16161b;
+}
+
+.fighter-presenter-chad figcaption {
+  color: #ff9a9f;
+}
+
+.fighter-presenter-groko {
+  background:
+    linear-gradient(145deg, rgba(34, 197, 94, 0.18), rgba(255,255,255,0.045)),
+    #121912;
+}
+
+.fighter-presenter-groko figcaption {
+  color: #29f0a2;
+}
+
+.component-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.component-card {
+  min-height: clamp(100px, 12vh, 130px);
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  align-items: end;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  background:
+    linear-gradient(145deg, rgba(56, 189, 248, 0.08), rgba(255,255,255,0.045)),
+    #121821;
+  box-shadow: inset 0 0 18px rgba(56, 189, 248, 0.06);
+  text-align: center;
+}
+
+.component-photo {
+  min-height: clamp(46px, 7vh, 68px);
+  border-radius: 10px;
+  border: 1px dashed rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.035);
+}
+
+.component-card strong {
+  color: #e5e7eb;
+  font-size: 16px;
+  font-weight: 1000;
+}
+
+.component-card span {
+  color: #7dd3fc;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  .presentation-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "chad groko"
+      "components components";
+    align-items: stretch;
+  }
+
+  .fighter-presenter-chad {
+    grid-area: chad;
+  }
+
+  .fighter-presenter-groko {
+    grid-area: groko;
+  }
+
+  .component-stack {
+    grid-area: components;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .component-card {
+    flex: 1 1 150px;
+    max-width: 240px;
+  }
+}
+
+.battle-explanation {
+  margin: 18px 0 0;
+  padding: clamp(12px, 2vw, 16px);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.22);
+  color: #d1d5db;
+  font-size: clamp(13px, 1.8vw, 15px);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.battle-explanation p {
+  margin: 0;
+}
+
+.battle-explanation p + p {
+  margin-top: 12px;
 }
 
 .reward-grid {

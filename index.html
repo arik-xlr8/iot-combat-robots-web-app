@@ -44,7 +44,10 @@
         </div>
 
         <div class="top-actions">
-          <button id="rewardsBtn" class="rewards-box rewards-btn" type="button"><i class="fa-solid fa-gift" aria-hidden="true"></i><span>Rewards</span></button>
+          <div class="quick-actions">
+            <button id="rewardsBtn" class="rewards-box rewards-btn" type="button"><i class="fa-solid fa-gift" aria-hidden="true"></i><span>Rewards</span></button>
+            <button id="infoBtn" class="info-box info-btn" type="button" aria-label="Open robot info"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span>Info</span></button>
+          </div>
 
           <div class="user-box">
             <div class="profile-row">
@@ -229,6 +232,63 @@
           </div>
 
           <div id="rewardsMessage" class="rewards-message"></div>
+        </section>
+      </div>
+
+      <div id="infoModal" class="modal hidden">
+        <div class="modal-backdrop" id="infoBackdrop"></div>
+        <section class="info-modal">
+          <div class="modal-head">
+            <h2>Battle Setup</h2>
+            <button id="closeInfoBtn" type="button" aria-label="Close info"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          </div>
+
+          <div class="presentation-layout">
+            <figure class="fighter-presenter fighter-presenter-chad">
+              <img src="assets/images/chadgpt.webp" alt="ChadGPT" />
+              <figcaption>CHADGPT</figcaption>
+            </figure>
+
+            <div class="component-stack" aria-label="Robot sensors and actuators">
+              <article class="component-card">
+                <div class="component-photo" aria-hidden="true"></div>
+                <strong>Servo</strong>
+                <span>Actuator</span>
+              </article>
+              <article class="component-card">
+                <div class="component-photo" aria-hidden="true"></div>
+                <strong>LDR</strong>
+                <span>Sensor</span>
+              </article>
+              <article class="component-card">
+                <div class="component-photo" aria-hidden="true"></div>
+                <strong>Piezo</strong>
+                <span>Sensor</span>
+              </article>
+              <article class="component-card">
+                <div class="component-photo" aria-hidden="true"></div>
+                <strong>ADXL345</strong>
+                <span>Sensor</span>
+              </article>
+            </div>
+
+            <figure class="fighter-presenter fighter-presenter-groko">
+              <img src="assets/images/grokozillia.png" alt="GROKOZILLA" />
+              <figcaption>GROKOZILLA</figcaption>
+            </figure>
+          </div>
+
+          <div class="battle-explanation">
+            <p>
+              ChadGPT vs GROKOZILLA is an IoT-powered robot battle where two cardboard fighters step into the ring under the control of an ESP32. When the match starts, servo-driven arms perform attack motions in sequence, and every physical contact is judged through real sensor feedback. The winner is not chosen randomly; the arena turns actual hits into health-point changes.
+            </p>
+            <p>
+              Piezo sensors detect incoming hits and reduce the HP of the robot that takes damage. The LDR reads ambient light and adds a tactical twist to the fight by giving a speed advantage depending on the lighting conditions. The OLED display shows live HP values, rage mode status, light-based effects, and the winner. The ADXL345 accelerometer is included experimentally to explore motion and acceleration data during the battle.
+            </p>
+            <p>
+              On the control side, Arduino IoT Cloud is used to start and stop the battle remotely while monitoring robot data through a dashboard. The ESP32 handles sensor reading, Wi-Fi communication, and servo control signals, while the two SG90 servos are powered from separate 5V sources for stable movement. All grounds are connected together so the servo signals are interpreted correctly, keeping the physical arena and the digital dashboard locked into the same fight.
+            </p>
+          </div>
         </section>
       </div>
     </section>

@@ -65,12 +65,19 @@ const rewardsModal = document.getElementById("rewardsModal");
 const rewardsBackdrop = document.getElementById("rewardsBackdrop");
 const closeRewardsBtn = document.getElementById("closeRewardsBtn");
 const rewardsMessage = document.getElementById("rewardsMessage");
+const infoBtn = document.getElementById("infoBtn");
+const infoModal = document.getElementById("infoModal");
+const infoBackdrop = document.getElementById("infoBackdrop");
+const closeInfoBtn = document.getElementById("closeInfoBtn");
 
 loginBtn.addEventListener("click", login);
 logoutBtn.addEventListener("click", logout);
 rewardsBtn.addEventListener("click", openRewards);
 rewardsBackdrop.addEventListener("click", closeRewards);
 closeRewardsBtn.addEventListener("click", closeRewards);
+infoBtn.addEventListener("click", openInfo);
+infoBackdrop.addEventListener("click", closeInfo);
+closeInfoBtn.addEventListener("click", closeInfo);
 enterMatchBtn.addEventListener("click", enterMatchView);
 
 usernameInput.addEventListener("keydown", (event) => {
@@ -588,6 +595,14 @@ async function openRewards() {
 
 function closeRewards() {
   rewardsModal.classList.add("hidden");
+}
+
+function openInfo() {
+  infoModal.classList.remove("hidden");
+}
+
+function closeInfo() {
+  infoModal.classList.add("hidden");
 }
 
 async function loadRewards() {
