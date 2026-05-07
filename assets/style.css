@@ -1041,6 +1041,14 @@ input {
   width: min(100%, clamp(150px, 22vw, 260px));
   max-height: clamp(165px, 32vh, 320px);
   object-fit: contain;
+  padding: clamp(8px, 1.5vw, 14px);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255,255,255,0.16), transparent 58%),
+    rgba(0,0,0,0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 16px 34px rgba(0,0,0,0.34);
   filter: drop-shadow(0 24px 28px rgba(0,0,0,0.48));
 }
 
@@ -1055,6 +1063,10 @@ input {
     #16161b;
 }
 
+.fighter-presenter-chad img {
+  transform: scaleX(-1);
+}
+
 .fighter-presenter-chad figcaption {
   color: #ff9a9f;
 }
@@ -1063,6 +1075,10 @@ input {
   background:
     linear-gradient(145deg, rgba(34, 197, 94, 0.18), rgba(255,255,255,0.045)),
     #121912;
+}
+
+.fighter-presenter-groko img {
+  transform: scaleX(-1);
 }
 
 .fighter-presenter-groko figcaption {
@@ -1093,8 +1109,24 @@ input {
 .component-photo {
   min-height: clamp(46px, 7vh, 68px);
   border-radius: 10px;
-  border: 1px dashed rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,0.15), transparent 62%),
+    rgba(0,0,0,0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 10px 22px rgba(0,0,0,0.22);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.component-photo img {
+  width: min(100%, 112px);
+  height: clamp(44px, 7vh, 72px);
+  object-fit: contain;
+  padding: 6px;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.34));
 }
 
 .component-card strong {
